@@ -37,7 +37,6 @@ jobs:
         run: |
           export LC_ALL=C.UTF-8
           export LANG=C.UTF-8
-          bundle exec jekyll
           bundle exec jekyll build
       - name: Update Branch
         uses: peaceiris/actions-gh-pages@v3
