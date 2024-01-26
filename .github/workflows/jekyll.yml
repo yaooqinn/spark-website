@@ -44,3 +44,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: ${{ github.ref_name }}
           publish_dir: site
+          destination_dir: site
