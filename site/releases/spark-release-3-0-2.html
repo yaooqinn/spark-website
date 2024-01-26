@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+     Spark Release 3.0.2 | Apache Spark
+    
+  </title>
+
+  
+
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  <link href="/css/custom.css" rel="stylesheet">
+  <!-- Code highlighter CSS -->
+  <link href="/css/pygments-default.css" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://analytics.apache.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '40']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
+</head>
+<body class="global">
+<nav class="navbar navbar-expand-lg navbar-dark p-0 px-4" style="background: #1D6890;">
+  <a class="navbar-brand" href="/">
+    <img src="/images/spark-logo-rev.svg" alt="" width="141" height="72">
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse col-md-12 col-lg-auto pt-4" id="navbarContent">
+
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/downloads.html">Download</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="libraries" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+          Libraries
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="libraries">
+          <li><a class="dropdown-item" href="/sql/">SQL and DataFrames</a></li>
+          <li><a class="dropdown-item" href="/streaming/">Spark Streaming</a></li>
+          <li><a class="dropdown-item" href="/mllib/">MLlib (machine learning)</a></li>
+          <li><a class="dropdown-item" href="/graphx/">GraphX (graph)</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="/third-party-projects.html">Third-Party Projects</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="documentation" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+          Documentation
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="documentation">
+          <li><a class="dropdown-item" href="/docs/latest/">Latest Release</a></li>
+          <li><a class="dropdown-item" href="/documentation.html">Older Versions and Other Resources</a></li>
+          <li><a class="dropdown-item" href="/faq.html">Frequently Asked Questions</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/examples.html">Examples</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="community" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+          Community
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="community">
+          <li><a class="dropdown-item" href="/community.html">Mailing Lists &amp; Resources</a></li>
+          <li><a class="dropdown-item" href="/contributing.html">Contributing to Spark</a></li>
+          <li><a class="dropdown-item" href="/improvement-proposals.html">Improvement Proposals (SPIP)</a>
+          </li>
+          <li><a class="dropdown-item" href="https://issues.apache.org/jira/browse/SPARK">Issue Tracker</a>
+          </li>
+          <li><a class="dropdown-item" href="/powered-by.html">Powered By</a></li>
+          <li><a class="dropdown-item" href="/committers.html">Project Committers</a></li>
+          <li><a class="dropdown-item" href="/history.html">Project History</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="developers" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+          Developers
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="developers">
+          <li><a class="dropdown-item" href="/developer-tools.html">Useful Developer Tools</a></li>
+          <li><a class="dropdown-item" href="/versioning-policy.html">Versioning Policy</a></li>
+          <li><a class="dropdown-item" href="/release-process.html">Release Process</a></li>
+          <li><a class="dropdown-item" href="/security.html">Security</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="apacheFoundation" role="button"
+           data-bs-toggle="dropdown" aria-expanded="false">
+          Apache Software Foundation
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="apacheFoundation">
+          <li><a class="dropdown-item" href="https://www.apache.org/">Apache Homepage</a></li>
+          <li><a class="dropdown-item" href="https://www.apache.org/licenses/">License</a></li>
+          <li><a class="dropdown-item"
+                 href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+          <li><a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+          <li><a class="dropdown-item" href="https://www.apache.org/security/">Security</a></li>
+          <li><a class="dropdown-item" href="https://www.apache.org/events/current-event">Event</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-12 col-md-9">
+      <h2>Spark Release 3.0.2</h2>
+
+
+<p>Spark 3.0.2 is a maintenance release containing stability fixes. This release is based on the branch-3.0 maintenance branch of Spark. We strongly recommend all 3.0 users to upgrade to this stable release.</p>
+
+<h3 id="notable-changes">Notable changes</h3>
+
+<ul>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-31511">[SPARK-31511]</a>: Make BytesToBytesMap iterator() thread-safe</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-32635">[SPARK-32635]</a>: When pyspark.sql.functions.lit() function is used with dataframe cache, it returns wrong result</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-32753">[SPARK-32753]</a>: Deduplicating and repartitioning the same column create duplicate rows with AQE</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-32764">[SPARK-32764]</a>: compare of -0.0 &lt; 0.0 return true</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-32840">[SPARK-32840]</a>: Invalid interval value can happen to be just adhesive with the unit</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-32908">[SPARK-32908]</a>: percentile_approx() returns incorrect results</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-33019">[SPARK-33019]</a>: Use spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version=1 by default</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-33183">[SPARK-33183]</a>: Bug in optimizer rule EliminateSorts</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-33260">[SPARK-33260]</a>: SortExec produces incorrect results if sortOrder is a Stream</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-33290">[SPARK-33290]</a>: SPARK-33507 REFRESH TABLE should invalidate cache even though the table itself may not be cached</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-33358">[SPARK-33358]</a>: Spark SQL CLI command processing loop can&#8217;t exit while one comand fail</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-33404">[SPARK-33404]</a>: &#8220;date_trunc&#8221; expression returns incorrect results</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-33435">[SPARK-33435]</a>: SPARK-33507 DSv2: REFRESH TABLE should invalidate caches</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-33591">[SPARK-33591]</a>: NULL is recognized as the &#8220;null&#8221; string in partition specs</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-33593">[SPARK-33593]</a>: Vector reader got incorrect data with binary partition value</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-33726">[SPARK-33726]</a>: Duplicate field names causes wrong answers during aggregation</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-33819">[SPARK-33819]</a>: SingleFileEventLogFileReader/RollingEventLogFilesFileReader should be <code class="language-plaintext highlighter-rouge">package private</code></li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-33950">[SPARK-33950]</a>: ALTER TABLE .. DROP PARTITION doesn&#8217;t refresh cache</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-34011">[SPARK-34011]</a>: ALTER TABLE .. RENAME TO PARTITION doesn&#8217;t refresh cache</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-34027">[SPARK-34027]</a>: ALTER TABLE .. RECOVER PARTITIONS doesn&#8217;t refresh cache</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-34055">[SPARK-34055]</a>: ALTER TABLE .. ADD PARTITION doesn&#8217;t refresh cache</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-34187">[SPARK-34187]</a>: Use available offset range obtained during polling when checking offset validation</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-34212">[SPARK-34212]</a>: For parquet table, after changing the precision and scale of decimal type in hive, spark reads incorrect value</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-34213">[SPARK-34213]</a>: LOAD DATA doesn&#8217;t refresh v1 table cache</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-34229">[SPARK-34229]</a>: Avro should read decimal values with the file schema</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-34262">[SPARK-34262]</a>: ALTER TABLE .. SET LOCATION doesn&#8217;t refresh v1 table cache</li>
+</ul>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<p>While being a maintence release we did still upgrade some dependencies in this release they are:</p>
+
+<ul>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-32691">[SPARK-32691]</a>: Bump commons-crypto to v1.1.0</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-33831">[SPARK-33831]</a>: Update Jetty to 9.4.34</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-33725">[SPARK-33725]</a>: Upgrade snappy-java to 1.1.8.2</li>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-33405">[SPARK-33405]</a>: Upgrade commons-compress to 1.20</li>
+</ul>
+
+<h3 id="known-issues">Known issues</h3>
+<ul>
+  <li><a href="https://issues.apache.org/jira/browse/SPARK-34449">[SPARK-34449]</a>: Upgrade Jetty to 9.4.36</li>
+</ul>
+
+<p>You can consult JIRA for the <a href="https://s.apache.org/spark-3.0.2">detailed changes</a>.</p>
+
+<p>We would like to acknowledge all community members for contributing patches to this release.</p>
+
+
+<p>
+<br/>
+<a href="/news/">Spark News Archive</a>
+</p>
+
+    </div>
+    <div class="col-12 col-md-3">
+      <div class="news" style="margin-bottom: 20px;">
+        <h5>Latest News</h5>
+        <ul class="list-unstyled">
+          
+          <li><a href="/news/spark-3-5-0-released.html">Spark 3.5.0 released</a>
+            <span class="small">(Sep 13, 2023)</span></li>
+          
+          <li><a href="/news/spark-3-3-3-released.html">Spark 3.3.3 released</a>
+            <span class="small">(Aug 21, 2023)</span></li>
+          
+          <li><a href="/news/spark-3-4-1-released.html">Spark 3.4.1 released</a>
+            <span class="small">(Jun 23, 2023)</span></li>
+          
+          <li><a href="/news/spark-3-4-0-released.html">Spark 3.4.0 released</a>
+            <span class="small">(Apr 13, 2023)</span></li>
+          
+        </ul>
+        <p class="small" style="text-align: right;"><a href="/news/index.html">Archive</a></p>
+      </div>
+      <div style="text-align:center; margin-bottom: 20px;">
+        <a href="https://www.apache.org/events/current-event.html">
+          <img src="https://www.apache.org/events/current-event-234x60.png" style="max-width: 100%;"/>
+        </a>
+      </div>
+      <div class="hidden-xs hidden-sm">
+        <a href="/downloads.html" class="btn btn-cta btn-lg d-grid" style="margin-bottom: 30px;">
+          Download Spark
+        </a>
+        <p style="font-size: 16px; font-weight: 500; color: #555;">
+          Built-in Libraries:
+        </p>
+        <ul class="list-none">
+          <li><a href="/sql/">SQL and DataFrames</a></li>
+          <li><a href="/streaming/">Spark Streaming</a></li>
+          <li><a href="/mllib/">MLlib (machine learning)</a></li>
+          <li><a href="/graphx/">GraphX (graph)</a></li>
+        </ul>
+        <a href="/third-party-projects.html">Third-Party Projects</a>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <footer class="small">
+    <hr>
+    Apache Spark, Spark, Apache, the Apache feather logo, and the Apache Spark project logo are either registered
+    trademarks or trademarks of The Apache Software Foundation in the United States and other countries.
+    See guidance on use of Apache Spark <a href="/trademarks.html">trademarks</a>.
+    All other marks mentioned may be trademarks or registered trademarks of their respective owners.
+    Copyright &copy; 2018 The Apache Software Foundation, Licensed under the
+    <a href="https://www.apache.org/licenses/">Apache License, Version 2.0</a>.
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/lang-tabs.js"></script>
+<script src="/js/downloads.js"></script>
+</body>
+</html>

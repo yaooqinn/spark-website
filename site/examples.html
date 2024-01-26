@@ -14,193 +14,132 @@
 
   
 
-  <!-- Bootstrap core CSS -->
-  <link href="/css/cerulean.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
   <link href="/css/custom.css" rel="stylesheet">
-
   <!-- Code highlighter CSS -->
   <link href="/css/pygments-default.css" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-  <script type="text/javascript">
-  <!-- Google Analytics initialization -->
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-32518208-2']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-  <!-- Adds slight delay to links to allow async reporting -->
-  function trackOutboundLink(link, category, action) {
-    try {
-      _gaq.push(['_trackEvent', category , action]);
-    } catch(err){}
-
-    setTimeout(function() {
-      document.location.href = link.href;
-    }, 100);
-  }
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://analytics.apache.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '40']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
   </script>
-
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-  <![endif]-->
+  <!-- End Matomo Code -->
 </head>
+<body class="global">
+<nav class="navbar navbar-expand-lg navbar-dark p-0 px-4" style="background: #1D6890;">
+  <a class="navbar-brand" href="/">
+    <img src="/images/spark-logo-rev.svg" alt="" width="141" height="72">
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse col-md-12 col-lg-auto pt-4" id="navbarContent">
 
-<body>
-
-<script src="https://code.jquery.com/jquery.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script src="/js/lang-tabs.js"></script>
-<script src="/js/downloads.js"></script>
-
-<div class="container" style="max-width: 1200px;">
-
-<div class="masthead">
-  
-    <p class="lead">
-      <a href="/">
-      <img src="/images/spark-logo-trademark.png"
-        style="height:100px; width:auto; vertical-align: bottom; margin-top: 20px;"></a><span class="tagline">
-          Lightning-fast unified analytics engine
-      </span>
-    </p>
-  
-</div>
-
-<nav class="navbar navbar-default" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse"
-            data-target="#navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-  </div>
-
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse" id="navbar-collapse-1">
-    <ul class="nav navbar-nav">
-      <li><a href="/downloads.html">Download</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Libraries <b class="caret"></b>
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/downloads.html">Download</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="libraries" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+          Libraries
         </a>
-        <ul class="dropdown-menu">
-          <li><a href="/sql/">SQL and DataFrames</a></li>
-          <li><a href="/streaming/">Spark Streaming</a></li>
-          <li><a href="/mllib/">MLlib (machine learning)</a></li>
-          <li><a href="/graphx/">GraphX (graph)</a></li>
-          <li class="divider"></li>
-          <li><a href="/third-party-projects.html">Third-Party Projects</a></li>
+        <ul class="dropdown-menu" aria-labelledby="libraries">
+          <li><a class="dropdown-item" href="/sql/">SQL and DataFrames</a></li>
+          <li><a class="dropdown-item" href="/streaming/">Spark Streaming</a></li>
+          <li><a class="dropdown-item" href="/mllib/">MLlib (machine learning)</a></li>
+          <li><a class="dropdown-item" href="/graphx/">GraphX (graph)</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="/third-party-projects.html">Third-Party Projects</a></li>
         </ul>
       </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Documentation <b class="caret"></b>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="documentation" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+          Documentation
         </a>
-        <ul class="dropdown-menu">
-          <li><a href="/docs/latest/">Latest Release (Spark 3.0.1)</a></li>
-          <li><a href="/documentation.html">Older Versions and Other Resources</a></li>
-          <li><a href="/faq.html">Frequently Asked Questions</a></li>
+        <ul class="dropdown-menu" aria-labelledby="documentation">
+          <li><a class="dropdown-item" href="/docs/latest/">Latest Release</a></li>
+          <li><a class="dropdown-item" href="/documentation.html">Older Versions and Other Resources</a></li>
+          <li><a class="dropdown-item" href="/faq.html">Frequently Asked Questions</a></li>
         </ul>
       </li>
-      <li><a href="/examples.html">Examples</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Community <b class="caret"></b>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/examples.html">Examples</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="community" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+          Community
         </a>
-        <ul class="dropdown-menu">
-          <li><a href="/community.html">Mailing Lists &amp; Resources</a></li>
-          <li><a href="/contributing.html">Contributing to Spark</a></li>
-          <li><a href="/improvement-proposals.html">Improvement Proposals (SPIP)</a></li>
-          <li><a href="https://issues.apache.org/jira/browse/SPARK">Issue Tracker</a></li>
-          <li><a href="/powered-by.html">Powered By</a></li>
-          <li><a href="/committers.html">Project Committers</a></li>
-          <li><a href="/history.html">Project History</a></li>
+        <ul class="dropdown-menu" aria-labelledby="community">
+          <li><a class="dropdown-item" href="/community.html">Mailing Lists &amp; Resources</a></li>
+          <li><a class="dropdown-item" href="/contributing.html">Contributing to Spark</a></li>
+          <li><a class="dropdown-item" href="/improvement-proposals.html">Improvement Proposals (SPIP)</a>
+          </li>
+          <li><a class="dropdown-item" href="https://issues.apache.org/jira/browse/SPARK">Issue Tracker</a>
+          </li>
+          <li><a class="dropdown-item" href="/powered-by.html">Powered By</a></li>
+          <li><a class="dropdown-item" href="/committers.html">Project Committers</a></li>
+          <li><a class="dropdown-item" href="/history.html">Project History</a></li>
         </ul>
       </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-           Developers <b class="caret"></b>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="developers" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+          Developers
         </a>
-        <ul class="dropdown-menu">
-          <li><a href="/developer-tools.html">Useful Developer Tools</a></li>
-          <li><a href="/versioning-policy.html">Versioning Policy</a></li>
-          <li><a href="/release-process.html">Release Process</a></li>
-          <li><a href="/security.html">Security</a></li>
+        <ul class="dropdown-menu" aria-labelledby="developers">
+          <li><a class="dropdown-item" href="/developer-tools.html">Useful Developer Tools</a></li>
+          <li><a class="dropdown-item" href="/versioning-policy.html">Versioning Policy</a></li>
+          <li><a class="dropdown-item" href="/release-process.html">Release Process</a></li>
+          <li><a class="dropdown-item" href="/security.html">Security</a></li>
         </ul>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown">
-        <a href="https://www.apache.org/" class="dropdown-toggle" data-toggle="dropdown">
-          Apache Software Foundation <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="https://www.apache.org/">Apache Homepage</a></li>
-          <li><a href="https://www.apache.org/licenses/">License</a></li>
-          <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
-          <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
-          <li><a href="https://www.apache.org/security/">Security</a></li>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="apacheFoundation" role="button"
+           data-bs-toggle="dropdown" aria-expanded="false">
+          Apache Software Foundation
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="apacheFoundation">
+          <li><a class="dropdown-item" href="https://www.apache.org/">Apache Homepage</a></li>
+          <li><a class="dropdown-item" href="https://www.apache.org/licenses/">License</a></li>
+          <li><a class="dropdown-item"
+                 href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+          <li><a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+          <li><a class="dropdown-item" href="https://www.apache.org/security/">Security</a></li>
+          <li><a class="dropdown-item" href="https://www.apache.org/events/current-event">Event</a></li>
         </ul>
       </li>
     </ul>
   </div>
-  <!-- /.navbar-collapse -->
 </nav>
 
-
-<div class="row">
-  <div class="col-md-3 col-md-push-9">
-    <div class="news" style="margin-bottom: 20px;">
-      <h5>Latest News</h5>
-      <ul class="list-unstyled">
-        
-          <li><a href="/news/spark-3-0-1-released.html">Spark 3.0.1 released</a>
-          <span class="small">(Sep 08, 2020)</span></li>
-        
-          <li><a href="/news/spark-3-0-0-released.html">Spark 3.0.0 released</a>
-          <span class="small">(Jun 18, 2020)</span></li>
-        
-          <li><a href="/news/spark-ai-summit-june-2020-agenda-posted.html">Spark+AI Summit (June 22-25th, 2020, VIRTUAL) agenda posted</a>
-          <span class="small">(Jun 15, 2020)</span></li>
-        
-          <li><a href="/news/spark-2-4-6.html">Spark 2.4.6 released</a>
-          <span class="small">(Jun 05, 2020)</span></li>
-        
-      </ul>
-      <p class="small" style="text-align: right;"><a href="/news/index.html">Archive</a></p>
-    </div>
-    <div style="text-align:center; margin-bottom: 20px;">
-      <a href="https://www.apache.org/events/current-event.html">
-        <img src="https://www.apache.org/events/current-event-234x60.png"/>
-      </a>
-    </div>
-    <div class="hidden-xs hidden-sm">
-      <a href="/downloads.html" class="btn btn-success btn-lg btn-block" style="margin-bottom: 30px;">
-        Download Spark
-      </a>
-      <p style="font-size: 16px; font-weight: 500; color: #555;">
-        Built-in Libraries:
-      </p>
-      <ul class="list-none">
-        <li><a href="/sql/">SQL and DataFrames</a></li>
-        <li><a href="/streaming/">Spark Streaming</a></li>
-        <li><a href="/mllib/">MLlib (machine learning)</a></li>
-        <li><a href="/graphx/">GraphX (graph)</a></li>
-      </ul>
-      <a href="/third-party-projects.html">Third-Party Projects</a>
-    </div>
-  </div>
-
-  <div class="col-md-9 col-md-pull-3">
-    <h2>Apache Spark Examples</h2>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-12 col-md-9">
+      <h2>Apache Spark<span class="tm">&trade;</span> examples</h2>
 
 <p>These examples give a quick overview of the Spark API.
 Spark is built on the concept of <em>distributed datasets</em>, which contain arbitrary Java or
@@ -215,9 +154,9 @@ On top of Spark’s RDD API, high level APIs are provided, e.g.
 These high level APIs provide a concise way to conduct certain data operations.
 In this page, we will show examples using RDD API as well as examples using high level APIs.</p>
 
-<h2>RDD API Examples</h2>
+<h2>RDD API examples</h2>
 
-<h3>Word Count</h3>
+<h3>Word count</h3>
 <p>In this example, we use a few transformations to build a dataset of (String, Int) pairs called <code>counts</code> and then save it to a file.</p>
 
 <ul class="nav nav-tabs">
@@ -230,11 +169,11 @@ In this page, we will show examples using RDD API as well as examples using high
 <div class="tab-pane tab-pane-python active">
 <div class="code code-tab">
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">text_file</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s">"hdfs://..."</span><span class="p">)</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">text_file</span><span class="o">.</span><span class="n">flatMap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">))</span> \
-             <span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span><span class="p">:</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> \
-             <span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
-<span class="n">counts</span><span class="o">.</span><span class="n">saveAsTextFile</span><span class="p">(</span><span class="s">"hdfs://..."</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">text_file</span> <span class="o">=</span> <span class="n">sc</span><span class="p">.</span><span class="n">textFile</span><span class="p">(</span><span class="s">"hdfs://..."</span><span class="p">)</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">text_file</span><span class="p">.</span><span class="n">flatMap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">))</span> \
+             <span class="p">.</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span><span class="p">:</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> \
+             <span class="p">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">counts</span><span class="p">.</span><span class="n">saveAsTextFile</span><span class="p">(</span><span class="s">"hdfs://..."</span><span class="p">)</span></code></pre></figure>
 
 </div>
 </div>
@@ -265,7 +204,7 @@ In this page, we will show examples using RDD API as well as examples using high
 </div>
 </div>
 
-<h3>Pi Estimation</h3>
+<h3>Pi estimation</h3>
 <p>Spark can also be used for compute-intensive tasks. This code estimates <span style="font-family: serif; font-size: 120%;">π</span> by "throwing darts" at a circle. We pick random points in the unit square ((0, 0) to (1,1)) and see how many fall in the unit circle. The fraction should be <span style="font-family: serif; font-size: 120%;">π / 4</span>, so we use this to get our estimate.</p>
 
 <ul class="nav nav-tabs">
@@ -279,12 +218,12 @@ In this page, we will show examples using RDD API as well as examples using high
 <div class="code code-tab">
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">inside</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(),</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">random</span><span class="p">(),</span> <span class="n">random</span><span class="p">.</span><span class="n">random</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">1</span>
 
-<span class="n">count</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUM_SAMPLES</span><span class="p">))</span> \
-             <span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">inside</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Pi is roughly </span><span class="si">%</span><span class="s">f"</span> <span class="o">%</span> <span class="p">(</span><span class="mf">4.0</span> <span class="o">*</span> <span class="n">count</span> <span class="o">/</span> <span class="n">NUM_SAMPLES</span><span class="p">))</span></code></pre></figure>
+<span class="n">count</span> <span class="o">=</span> <span class="n">sc</span><span class="p">.</span><span class="n">parallelize</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUM_SAMPLES</span><span class="p">))</span> \
+             <span class="p">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">inside</span><span class="p">).</span><span class="n">count</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Pi is roughly %f"</span> <span class="o">%</span> <span class="p">(</span><span class="mf">4.0</span> <span class="o">*</span> <span class="n">count</span> <span class="o">/</span> <span class="n">NUM_SAMPLES</span><span class="p">))</span></code></pre></figure>
 
 </div>
 </div>
@@ -321,7 +260,7 @@ In this page, we will show examples using RDD API as well as examples using high
 </div>
 </div>
 
-<h2>DataFrame API Examples</h2>
+<h2>DataFrame API examples</h2>
 <p>
 In Spark, a <a href="https://spark.apache.org/docs/latest/sql-programming-guide.html#dataframes">DataFrame</a>
 is a distributed collection of data organized into named columns.
@@ -330,7 +269,7 @@ data sources and Spark’s built-in distributed collections without providing sp
 Also, programs based on DataFrame API will be automatically optimized by Spark’s built-in optimizer, Catalyst.
 </p>
 
-<h3>Text Search</h3>
+<h3>Text search</h3>
 <p>In this example, we search through the error messages in a log file.</p>
 
 <ul class="nav nav-tabs">
@@ -343,17 +282,17 @@ Also, programs based on DataFrame API will be automatically optimized by Spark�
 <div class="tab-pane tab-pane-python active">
 <div class="code code-tab">
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">textFile</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s">"hdfs://..."</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">textFile</span> <span class="o">=</span> <span class="n">sc</span><span class="p">.</span><span class="n">textFile</span><span class="p">(</span><span class="s">"hdfs://..."</span><span class="p">)</span>
 
 <span class="c1"># Creates a DataFrame having a single column named "line"
-</span><span class="n">df</span> <span class="o">=</span> <span class="n">textFile</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">Row</span><span class="p">(</span><span class="n">r</span><span class="p">))</span><span class="o">.</span><span class="n">toDF</span><span class="p">([</span><span class="s">"line"</span><span class="p">])</span>
-<span class="n">errors</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s">"line"</span><span class="p">)</span><span class="o">.</span><span class="n">like</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">ERROR</span><span class="si">%</span><span class="s">"</span><span class="p">))</span>
+</span><span class="n">df</span> <span class="o">=</span> <span class="n">textFile</span><span class="p">.</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">Row</span><span class="p">(</span><span class="n">r</span><span class="p">)).</span><span class="n">toDF</span><span class="p">([</span><span class="s">"line"</span><span class="p">])</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s">"line"</span><span class="p">).</span><span class="n">like</span><span class="p">(</span><span class="s">"%ERROR%"</span><span class="p">))</span>
 <span class="c1"># Counts all the errors
-</span><span class="n">errors</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</span><span class="n">errors</span><span class="p">.</span><span class="n">count</span><span class="p">()</span>
 <span class="c1"># Counts errors mentioning MySQL
-</span><span class="n">errors</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s">"line"</span><span class="p">)</span><span class="o">.</span><span class="n">like</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">MySQL</span><span class="si">%</span><span class="s">"</span><span class="p">))</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</span><span class="n">errors</span><span class="p">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s">"line"</span><span class="p">).</span><span class="n">like</span><span class="p">(</span><span class="s">"%MySQL%"</span><span class="p">)).</span><span class="n">count</span><span class="p">()</span>
 <span class="c1"># Fetches the MySQL errors as an array of strings
-</span><span class="n">errors</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s">"line"</span><span class="p">)</span><span class="o">.</span><span class="n">like</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">MySQL</span><span class="si">%</span><span class="s">"</span><span class="p">))</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></code></pre></figure>
+</span><span class="n">errors</span><span class="p">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s">"line"</span><span class="p">).</span><span class="n">like</span><span class="p">(</span><span class="s">"%MySQL%"</span><span class="p">)).</span><span class="n">collect</span><span class="p">()</span></code></pre></figure>
 
 </div>
 </div>
@@ -399,7 +338,7 @@ Also, programs based on DataFrame API will be automatically optimized by Spark�
 </div>
 </div>
 
-<h3>Simple Data Operations</h3>
+<h3>Simple data operations</h3>
 <p>
 In this example, we read a table stored in a database and calculate the number of people for every age.
 Finally, we save the calculated result to S3 in the format of JSON.
@@ -422,21 +361,21 @@ A simple MySQL table "people" is used in the example and this table has two colu
 </span><span class="n">url</span> <span class="o">=</span> \
   <span class="s">"jdbc:mysql://yourIP:yourPort/test?user=yourUsername;password=yourPassword"</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">sqlContext</span> \
-  <span class="o">.</span><span class="n">read</span> \
-  <span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"jdbc"</span><span class="p">)</span> \
-  <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s">"url"</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span> \
-  <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s">"dbtable"</span><span class="p">,</span> <span class="s">"people"</span><span class="p">)</span> \
-  <span class="o">.</span><span class="n">load</span><span class="p">()</span>
+  <span class="p">.</span><span class="n">read</span> \
+  <span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"jdbc"</span><span class="p">)</span> \
+  <span class="p">.</span><span class="n">option</span><span class="p">(</span><span class="s">"url"</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span> \
+  <span class="p">.</span><span class="n">option</span><span class="p">(</span><span class="s">"dbtable"</span><span class="p">,</span> <span class="s">"people"</span><span class="p">)</span> \
+  <span class="p">.</span><span class="n">load</span><span class="p">()</span>
 
 <span class="c1"># Looks the schema of this DataFrame.
-</span><span class="n">df</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+</span><span class="n">df</span><span class="p">.</span><span class="n">printSchema</span><span class="p">()</span>
 
 <span class="c1"># Counts people by age
-</span><span class="n">countsByAge</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s">"age"</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-<span class="n">countsByAge</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span class="n">countsByAge</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s">"age"</span><span class="p">).</span><span class="n">count</span><span class="p">()</span>
+<span class="n">countsByAge</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1"># Saves countsByAge to S3 in the JSON format.
-</span><span class="n">countsByAge</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"json"</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">"s3a://..."</span><span class="p">)</span></code></pre></figure>
+</span><span class="n">countsByAge</span><span class="p">.</span><span class="n">write</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"json"</span><span class="p">).</span><span class="n">save</span><span class="p">(</span><span class="s">"s3a://..."</span><span class="p">)</span></code></pre></figure>
 
 </div>
 </div>
@@ -496,7 +435,7 @@ A simple MySQL table "people" is used in the example and this table has two colu
 </div>
 </div>
 
-<h2>Machine Learning Example</h2>
+<h2>Machine learning example</h2>
 <p>
 <a href="https://spark.apache.org/docs/latest/mllib-guide.html">MLlib</a>, Spark’s Machine Learning (ML) library, provides many distributed ML algorithms.
 These algorithms cover tasks such as feature extraction, classification, regression, clustering,
@@ -505,7 +444,7 @@ MLlib also provides tools such as ML Pipelines for building workflows, CrossVali
 and model persistence for saving and loading models.
 </p>
 
-<h3>Prediction with Logistic Regression</h3>
+<h3>Prediction with logistic regression</h3>
 <p>
 In this example, we take a dataset of labels and feature vectors.
 We learn to predict the labels from feature vectors using the Logistic Regression algorithm.
@@ -523,17 +462,17 @@ We learn to predict the labels from feature vectors using the Logistic Regressio
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># Every record of this DataFrame contains the label and
 # features represented by a vector.
-</span><span class="n">df</span> <span class="o">=</span> <span class="n">sqlContext</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="s">"label"</span><span class="p">,</span> <span class="s">"features"</span><span class="p">])</span>
+</span><span class="n">df</span> <span class="o">=</span> <span class="n">sqlContext</span><span class="p">.</span><span class="n">createDataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="s">"label"</span><span class="p">,</span> <span class="s">"features"</span><span class="p">])</span>
 
 <span class="c1"># Set parameters for the algorithm.
 # Here, we limit the number of iterations to 10.
 </span><span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">maxIter</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># Fit the model to the data.
-</span><span class="n">model</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">lr</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 
 <span class="c1"># Given a dataset, predict each point's label, and show the results.
-</span><span class="n">model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
+</span><span class="n">model</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">).</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 </div>
 </div>
@@ -590,7 +529,7 @@ We learn to predict the labels from feature vectors using the Logistic Regressio
 </div>
 
 <p><a name="additional"></a></p>
-<h1>Additional Examples</h1>
+<h1>Additional examples</h1>
 
 <p>Many additional examples are distributed with Spark:</p>
 
@@ -599,22 +538,68 @@ We learn to predict the labels from feature vectors using the Logistic Regressio
   <li>Spark Streaming: <a href="https://github.com/apache/spark/tree/master/examples/src/main/scala/org/apache/spark/examples/streaming">Scala examples</a>, <a href="https://github.com/apache/spark/tree/master/examples/src/main/java/org/apache/spark/examples/streaming">Java examples</a></li>
 </ul>
 
+    </div>
+    <div class="col-12 col-md-3">
+      <div class="news" style="margin-bottom: 20px;">
+        <h5>Latest News</h5>
+        <ul class="list-unstyled">
+          
+          <li><a href="/news/spark-3-5-0-released.html">Spark 3.5.0 released</a>
+            <span class="small">(Sep 13, 2023)</span></li>
+          
+          <li><a href="/news/spark-3-3-3-released.html">Spark 3.3.3 released</a>
+            <span class="small">(Aug 21, 2023)</span></li>
+          
+          <li><a href="/news/spark-3-4-1-released.html">Spark 3.4.1 released</a>
+            <span class="small">(Jun 23, 2023)</span></li>
+          
+          <li><a href="/news/spark-3-4-0-released.html">Spark 3.4.0 released</a>
+            <span class="small">(Apr 13, 2023)</span></li>
+          
+        </ul>
+        <p class="small" style="text-align: right;"><a href="/news/index.html">Archive</a></p>
+      </div>
+      <div style="text-align:center; margin-bottom: 20px;">
+        <a href="https://www.apache.org/events/current-event.html">
+          <img src="https://www.apache.org/events/current-event-234x60.png" style="max-width: 100%;"/>
+        </a>
+      </div>
+      <div class="hidden-xs hidden-sm">
+        <a href="/downloads.html" class="btn btn-cta btn-lg d-grid" style="margin-bottom: 30px;">
+          Download Spark
+        </a>
+        <p style="font-size: 16px; font-weight: 500; color: #555;">
+          Built-in Libraries:
+        </p>
+        <ul class="list-none">
+          <li><a href="/sql/">SQL and DataFrames</a></li>
+          <li><a href="/streaming/">Spark Streaming</a></li>
+          <li><a href="/mllib/">MLlib (machine learning)</a></li>
+          <li><a href="/graphx/">GraphX (graph)</a></li>
+        </ul>
+        <a href="/third-party-projects.html">Third-Party Projects</a>
+      </div>
+    </div>
   </div>
+
+  
+
+  <footer class="small">
+    <hr>
+    Apache Spark, Spark, Apache, the Apache feather logo, and the Apache Spark project logo are either registered
+    trademarks or trademarks of The Apache Software Foundation in the United States and other countries.
+    See guidance on use of Apache Spark <a href="/trademarks.html">trademarks</a>.
+    All other marks mentioned may be trademarks or registered trademarks of their respective owners.
+    Copyright &copy; 2018 The Apache Software Foundation, Licensed under the
+    <a href="https://www.apache.org/licenses/">Apache License, Version 2.0</a>.
+  </footer>
 </div>
 
-
-
-<footer class="small">
-  <hr>
-  Apache Spark, Spark, Apache, the Apache feather logo, and the Apache Spark project logo are either registered
-  trademarks or trademarks of The Apache Software Foundation in the United States and other countries.
-  See guidance on use of Apache Spark <a href="/trademarks.html">trademarks</a>.
-  All other marks mentioned may be trademarks or registered trademarks of their respective owners.
-  Copyright &copy; 2018 The Apache Software Foundation, Licensed under the
-  <a href="https://www.apache.org/licenses/">Apache License, Version 2.0</a>.
-</footer>
-
-</div>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/lang-tabs.js"></script>
+<script src="/js/downloads.js"></script>
 </body>
 </html>

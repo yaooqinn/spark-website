@@ -14,193 +14,132 @@
 
   
 
-  <!-- Bootstrap core CSS -->
-  <link href="/css/cerulean.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
   <link href="/css/custom.css" rel="stylesheet">
-
   <!-- Code highlighter CSS -->
   <link href="/css/pygments-default.css" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-  <script type="text/javascript">
-  <!-- Google Analytics initialization -->
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-32518208-2']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-  <!-- Adds slight delay to links to allow async reporting -->
-  function trackOutboundLink(link, category, action) {
-    try {
-      _gaq.push(['_trackEvent', category , action]);
-    } catch(err){}
-
-    setTimeout(function() {
-      document.location.href = link.href;
-    }, 100);
-  }
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://analytics.apache.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '40']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
   </script>
-
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-  <![endif]-->
+  <!-- End Matomo Code -->
 </head>
+<body class="global">
+<nav class="navbar navbar-expand-lg navbar-dark p-0 px-4" style="background: #1D6890;">
+  <a class="navbar-brand" href="/">
+    <img src="/images/spark-logo-rev.svg" alt="" width="141" height="72">
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse col-md-12 col-lg-auto pt-4" id="navbarContent">
 
-<body>
-
-<script src="https://code.jquery.com/jquery.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script src="/js/lang-tabs.js"></script>
-<script src="/js/downloads.js"></script>
-
-<div class="container" style="max-width: 1200px;">
-
-<div class="masthead">
-  
-    <p class="lead">
-      <a href="/">
-      <img src="/images/spark-logo-trademark.png"
-        style="height:100px; width:auto; vertical-align: bottom; margin-top: 20px;"></a><span class="tagline">
-          Lightning-fast unified analytics engine
-      </span>
-    </p>
-  
-</div>
-
-<nav class="navbar navbar-default" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse"
-            data-target="#navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-  </div>
-
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse" id="navbar-collapse-1">
-    <ul class="nav navbar-nav">
-      <li><a href="/downloads.html">Download</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Libraries <b class="caret"></b>
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/downloads.html">Download</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="libraries" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+          Libraries
         </a>
-        <ul class="dropdown-menu">
-          <li><a href="/sql/">SQL and DataFrames</a></li>
-          <li><a href="/streaming/">Spark Streaming</a></li>
-          <li><a href="/mllib/">MLlib (machine learning)</a></li>
-          <li><a href="/graphx/">GraphX (graph)</a></li>
-          <li class="divider"></li>
-          <li><a href="/third-party-projects.html">Third-Party Projects</a></li>
+        <ul class="dropdown-menu" aria-labelledby="libraries">
+          <li><a class="dropdown-item" href="/sql/">SQL and DataFrames</a></li>
+          <li><a class="dropdown-item" href="/streaming/">Spark Streaming</a></li>
+          <li><a class="dropdown-item" href="/mllib/">MLlib (machine learning)</a></li>
+          <li><a class="dropdown-item" href="/graphx/">GraphX (graph)</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="/third-party-projects.html">Third-Party Projects</a></li>
         </ul>
       </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Documentation <b class="caret"></b>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="documentation" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+          Documentation
         </a>
-        <ul class="dropdown-menu">
-          <li><a href="/docs/latest/">Latest Release (Spark 3.0.1)</a></li>
-          <li><a href="/documentation.html">Older Versions and Other Resources</a></li>
-          <li><a href="/faq.html">Frequently Asked Questions</a></li>
+        <ul class="dropdown-menu" aria-labelledby="documentation">
+          <li><a class="dropdown-item" href="/docs/latest/">Latest Release</a></li>
+          <li><a class="dropdown-item" href="/documentation.html">Older Versions and Other Resources</a></li>
+          <li><a class="dropdown-item" href="/faq.html">Frequently Asked Questions</a></li>
         </ul>
       </li>
-      <li><a href="/examples.html">Examples</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Community <b class="caret"></b>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/examples.html">Examples</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="community" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+          Community
         </a>
-        <ul class="dropdown-menu">
-          <li><a href="/community.html">Mailing Lists &amp; Resources</a></li>
-          <li><a href="/contributing.html">Contributing to Spark</a></li>
-          <li><a href="/improvement-proposals.html">Improvement Proposals (SPIP)</a></li>
-          <li><a href="https://issues.apache.org/jira/browse/SPARK">Issue Tracker</a></li>
-          <li><a href="/powered-by.html">Powered By</a></li>
-          <li><a href="/committers.html">Project Committers</a></li>
-          <li><a href="/history.html">Project History</a></li>
+        <ul class="dropdown-menu" aria-labelledby="community">
+          <li><a class="dropdown-item" href="/community.html">Mailing Lists &amp; Resources</a></li>
+          <li><a class="dropdown-item" href="/contributing.html">Contributing to Spark</a></li>
+          <li><a class="dropdown-item" href="/improvement-proposals.html">Improvement Proposals (SPIP)</a>
+          </li>
+          <li><a class="dropdown-item" href="https://issues.apache.org/jira/browse/SPARK">Issue Tracker</a>
+          </li>
+          <li><a class="dropdown-item" href="/powered-by.html">Powered By</a></li>
+          <li><a class="dropdown-item" href="/committers.html">Project Committers</a></li>
+          <li><a class="dropdown-item" href="/history.html">Project History</a></li>
         </ul>
       </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-           Developers <b class="caret"></b>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="developers" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+          Developers
         </a>
-        <ul class="dropdown-menu">
-          <li><a href="/developer-tools.html">Useful Developer Tools</a></li>
-          <li><a href="/versioning-policy.html">Versioning Policy</a></li>
-          <li><a href="/release-process.html">Release Process</a></li>
-          <li><a href="/security.html">Security</a></li>
+        <ul class="dropdown-menu" aria-labelledby="developers">
+          <li><a class="dropdown-item" href="/developer-tools.html">Useful Developer Tools</a></li>
+          <li><a class="dropdown-item" href="/versioning-policy.html">Versioning Policy</a></li>
+          <li><a class="dropdown-item" href="/release-process.html">Release Process</a></li>
+          <li><a class="dropdown-item" href="/security.html">Security</a></li>
         </ul>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown">
-        <a href="https://www.apache.org/" class="dropdown-toggle" data-toggle="dropdown">
-          Apache Software Foundation <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="https://www.apache.org/">Apache Homepage</a></li>
-          <li><a href="https://www.apache.org/licenses/">License</a></li>
-          <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
-          <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
-          <li><a href="https://www.apache.org/security/">Security</a></li>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="apacheFoundation" role="button"
+           data-bs-toggle="dropdown" aria-expanded="false">
+          Apache Software Foundation
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="apacheFoundation">
+          <li><a class="dropdown-item" href="https://www.apache.org/">Apache Homepage</a></li>
+          <li><a class="dropdown-item" href="https://www.apache.org/licenses/">License</a></li>
+          <li><a class="dropdown-item"
+                 href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+          <li><a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+          <li><a class="dropdown-item" href="https://www.apache.org/security/">Security</a></li>
+          <li><a class="dropdown-item" href="https://www.apache.org/events/current-event">Event</a></li>
         </ul>
       </li>
     </ul>
   </div>
-  <!-- /.navbar-collapse -->
 </nav>
 
-
-<div class="row">
-  <div class="col-md-3 col-md-push-9">
-    <div class="news" style="margin-bottom: 20px;">
-      <h5>Latest News</h5>
-      <ul class="list-unstyled">
-        
-          <li><a href="/news/spark-3-0-1-released.html">Spark 3.0.1 released</a>
-          <span class="small">(Sep 08, 2020)</span></li>
-        
-          <li><a href="/news/spark-3-0-0-released.html">Spark 3.0.0 released</a>
-          <span class="small">(Jun 18, 2020)</span></li>
-        
-          <li><a href="/news/spark-ai-summit-june-2020-agenda-posted.html">Spark+AI Summit (June 22-25th, 2020, VIRTUAL) agenda posted</a>
-          <span class="small">(Jun 15, 2020)</span></li>
-        
-          <li><a href="/news/spark-2-4-6.html">Spark 2.4.6 released</a>
-          <span class="small">(Jun 05, 2020)</span></li>
-        
-      </ul>
-      <p class="small" style="text-align: right;"><a href="/news/index.html">Archive</a></p>
-    </div>
-    <div style="text-align:center; margin-bottom: 20px;">
-      <a href="https://www.apache.org/events/current-event.html">
-        <img src="https://www.apache.org/events/current-event-234x60.png"/>
-      </a>
-    </div>
-    <div class="hidden-xs hidden-sm">
-      <a href="/downloads.html" class="btn btn-success btn-lg btn-block" style="margin-bottom: 30px;">
-        Download Spark
-      </a>
-      <p style="font-size: 16px; font-weight: 500; color: #555;">
-        Built-in Libraries:
-      </p>
-      <ul class="list-none">
-        <li><a href="/sql/">SQL and DataFrames</a></li>
-        <li><a href="/streaming/">Spark Streaming</a></li>
-        <li><a href="/mllib/">MLlib (machine learning)</a></li>
-        <li><a href="/graphx/">GraphX (graph)</a></li>
-      </ul>
-      <a href="/third-party-projects.html">Third-Party Projects</a>
-    </div>
-  </div>
-
-  <div class="col-md-9 col-md-pull-3">
-    <h2>Spark Release 0.9.0</h2>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-12 col-md-9">
+      <h2>Spark Release 0.9.0</h2>
 
 
 <p>Spark 0.9.0 is a major release that adds significant new features. It updates Spark to Scala 2.10, simplifies high availability, and updates numerous components of the project. This release includes a first version of <a href="/graphx/">GraphX</a>, a powerful new framework for graph processing that comes with a library of standard algorithms. In addition, <a href="/streaming/">Spark Streaming</a> is now out of alpha, and includes significant optimizations and simplified high availability deployment.</p>
@@ -232,10 +171,10 @@
   <li>A new <a href="/docs/0.9.0/api/streaming/index.html#org.apache.spark.streaming.scheduler.StreamingListener">StreamingListener</a> interface has been added for monitoring statistics about the streaming computation.</li>
   <li>A few aspects of the API have been improved:
     <ul>
-      <li><code class="highlighter-rouge">DStream</code> and <code class="highlighter-rouge">PairDStream</code> classes have been moved from <code class="highlighter-rouge">org.apache.spark.streaming</code> to <code class="highlighter-rouge">org.apache.spark.streaming.dstream</code> to keep it consistent with <code class="highlighter-rouge">org.apache.spark.rdd.RDD</code>.</li>
-      <li><code class="highlighter-rouge">DStream.foreach</code> has been renamed to <code class="highlighter-rouge">foreachRDD</code> to make it explicit that it works for every RDD, not every element</li>
-      <li><code class="highlighter-rouge">StreamingContext.awaitTermination()</code> allows you wait for context shutdown and catch any exception that occurs in the streaming computation.
- *<code class="highlighter-rouge">StreamingContext.stop()</code> now allows stopping of StreamingContext without stopping the underlying SparkContext.</li>
+      <li><code class="language-plaintext highlighter-rouge">DStream</code> and <code class="language-plaintext highlighter-rouge">PairDStream</code> classes have been moved from <code class="language-plaintext highlighter-rouge">org.apache.spark.streaming</code> to <code class="language-plaintext highlighter-rouge">org.apache.spark.streaming.dstream</code> to keep it consistent with <code class="language-plaintext highlighter-rouge">org.apache.spark.rdd.RDD</code>.</li>
+      <li><code class="language-plaintext highlighter-rouge">DStream.foreach</code> has been renamed to <code class="language-plaintext highlighter-rouge">foreachRDD</code> to make it explicit that it works for every RDD, not every element</li>
+      <li><code class="language-plaintext highlighter-rouge">StreamingContext.awaitTermination()</code> allows you wait for context shutdown and catch any exception that occurs in the streaming computation.
+ *<code class="language-plaintext highlighter-rouge">StreamingContext.stop()</code> now allows stopping of StreamingContext without stopping the underlying SparkContext.</li>
     </ul>
   </li>
 </ul>
@@ -286,8 +225,8 @@
   <li>Spark’s standalone mode now supports submitting a driver program to run on the cluster instead of on the external machine submitting it. You can access this functionality through the <a href="/docs/0.9.0/spark-standalone.html#launching-applications-inside-the-cluster">org.apache.spark.deploy.Client</a> class.</li>
   <li>Large reduce operations now automatically spill data to disk if it does not fit in memory.</li>
   <li>Users of standalone mode can now limit how many cores an application will use by default if the application writer didn’t configure its size. Previously, such applications took all available cores on the cluster.</li>
-  <li><code class="highlighter-rouge">spark-shell</code> now supports the <code class="highlighter-rouge">-i</code> option to run a script on startup.</li>
-  <li>New <code class="highlighter-rouge">histogram</code> and <code class="highlighter-rouge">countDistinctApprox</code> operators have been added for working with numerical data.</li>
+  <li><code class="language-plaintext highlighter-rouge">spark-shell</code> now supports the <code class="language-plaintext highlighter-rouge">-i</code> option to run a script on startup.</li>
+  <li>New <code class="language-plaintext highlighter-rouge">histogram</code> and <code class="language-plaintext highlighter-rouge">countDistinctApprox</code> operators have been added for working with numerical data.</li>
   <li>YARN mode now supports distributing extra files with the application, and several bugs have been fixed.</li>
 </ul>
 
@@ -297,8 +236,8 @@
 
 <ul>
   <li>Scala programs now need to use Scala 2.10 instead of 2.9.</li>
-  <li>Scripts such as <code class="highlighter-rouge">spark-shell</code> and <code class="highlighter-rouge">pyspark</code> have been moved into the <code class="highlighter-rouge">bin</code> folder, while administrative scripts to start and stop standalone clusters have been moved into <code class="highlighter-rouge">sbin</code>.</li>
-  <li>Spark Streaming’s API has been changed to move external input sources into separate modules, <code class="highlighter-rouge">DStream</code> and <code class="highlighter-rouge">PairDStream</code> has been moved to package <code class="highlighter-rouge">org.apache.spark.streaming.dstream</code> and <code class="highlighter-rouge">DStream.foreach</code> has been renamed to <code class="highlighter-rouge">foreachRDD</code>. We expect the current API to be stable now that Spark Streaming is out of alpha.</li>
+  <li>Scripts such as <code class="language-plaintext highlighter-rouge">spark-shell</code> and <code class="language-plaintext highlighter-rouge">pyspark</code> have been moved into the <code class="language-plaintext highlighter-rouge">bin</code> folder, while administrative scripts to start and stop standalone clusters have been moved into <code class="language-plaintext highlighter-rouge">sbin</code>.</li>
+  <li>Spark Streaming’s API has been changed to move external input sources into separate modules, <code class="language-plaintext highlighter-rouge">DStream</code> and <code class="language-plaintext highlighter-rouge">PairDStream</code> has been moved to package <code class="language-plaintext highlighter-rouge">org.apache.spark.streaming.dstream</code> and <code class="language-plaintext highlighter-rouge">DStream.foreach</code> has been renamed to <code class="language-plaintext highlighter-rouge">foreachRDD</code>. We expect the current API to be stable now that Spark Streaming is out of alpha.</li>
   <li>While the old method of configuring Spark through Java system properties still works, we recommend that users update to the new [SparkConf], which is easier to inspect and use.</li>
 </ul>
 
@@ -361,7 +300,7 @@
   <li>Kay Ousterhout &#8211; several bug fixes and improvements to Spark scheduler</li>
   <li>Sean Owen &#8211; style fixes</li>
   <li>Nick Pentreath &#8211; ALS implicit feedback algorithm</li>
-  <li>Pillis &#8211; <code class="highlighter-rouge">Vector.random()</code> method</li>
+  <li>Pillis &#8211; <code class="language-plaintext highlighter-rouge">Vector.random()</code> method</li>
   <li>Imran Rashid &#8211; bug fix</li>
   <li>Ahir Reddy &#8211; support for SIMR</li>
   <li>Luca Rosellini &#8211; script loading for Scala shell</li>
@@ -399,22 +338,68 @@
 <a href="/news/">Spark News Archive</a>
 </p>
 
+    </div>
+    <div class="col-12 col-md-3">
+      <div class="news" style="margin-bottom: 20px;">
+        <h5>Latest News</h5>
+        <ul class="list-unstyled">
+          
+          <li><a href="/news/spark-3-5-0-released.html">Spark 3.5.0 released</a>
+            <span class="small">(Sep 13, 2023)</span></li>
+          
+          <li><a href="/news/spark-3-3-3-released.html">Spark 3.3.3 released</a>
+            <span class="small">(Aug 21, 2023)</span></li>
+          
+          <li><a href="/news/spark-3-4-1-released.html">Spark 3.4.1 released</a>
+            <span class="small">(Jun 23, 2023)</span></li>
+          
+          <li><a href="/news/spark-3-4-0-released.html">Spark 3.4.0 released</a>
+            <span class="small">(Apr 13, 2023)</span></li>
+          
+        </ul>
+        <p class="small" style="text-align: right;"><a href="/news/index.html">Archive</a></p>
+      </div>
+      <div style="text-align:center; margin-bottom: 20px;">
+        <a href="https://www.apache.org/events/current-event.html">
+          <img src="https://www.apache.org/events/current-event-234x60.png" style="max-width: 100%;"/>
+        </a>
+      </div>
+      <div class="hidden-xs hidden-sm">
+        <a href="/downloads.html" class="btn btn-cta btn-lg d-grid" style="margin-bottom: 30px;">
+          Download Spark
+        </a>
+        <p style="font-size: 16px; font-weight: 500; color: #555;">
+          Built-in Libraries:
+        </p>
+        <ul class="list-none">
+          <li><a href="/sql/">SQL and DataFrames</a></li>
+          <li><a href="/streaming/">Spark Streaming</a></li>
+          <li><a href="/mllib/">MLlib (machine learning)</a></li>
+          <li><a href="/graphx/">GraphX (graph)</a></li>
+        </ul>
+        <a href="/third-party-projects.html">Third-Party Projects</a>
+      </div>
+    </div>
   </div>
+
+  
+
+  <footer class="small">
+    <hr>
+    Apache Spark, Spark, Apache, the Apache feather logo, and the Apache Spark project logo are either registered
+    trademarks or trademarks of The Apache Software Foundation in the United States and other countries.
+    See guidance on use of Apache Spark <a href="/trademarks.html">trademarks</a>.
+    All other marks mentioned may be trademarks or registered trademarks of their respective owners.
+    Copyright &copy; 2018 The Apache Software Foundation, Licensed under the
+    <a href="https://www.apache.org/licenses/">Apache License, Version 2.0</a>.
+  </footer>
 </div>
 
-
-
-<footer class="small">
-  <hr>
-  Apache Spark, Spark, Apache, the Apache feather logo, and the Apache Spark project logo are either registered
-  trademarks or trademarks of The Apache Software Foundation in the United States and other countries.
-  See guidance on use of Apache Spark <a href="/trademarks.html">trademarks</a>.
-  All other marks mentioned may be trademarks or registered trademarks of their respective owners.
-  Copyright &copy; 2018 The Apache Software Foundation, Licensed under the
-  <a href="https://www.apache.org/licenses/">Apache License, Version 2.0</a>.
-</footer>
-
-</div>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/lang-tabs.js"></script>
+<script src="/js/downloads.js"></script>
 </body>
 </html>
