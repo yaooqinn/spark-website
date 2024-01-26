@@ -23,7 +23,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  auto_update:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
@@ -33,17 +33,15 @@ jobs:
           sudo apt-get install -y ruby ruby-dev
           sudo gem install bundler --version 1.17.2
           bundle install
-      - name: Build
-        run: bundle exec jekyll build
-      - name: Log some thing
+      - name: Generate Site
         run: |
-          echo ${GITHUB_REF##*/}
-          echo ${GITHUB_REF}
-          echo ${{ github.ref_name }}
-      - name: Deploy
+          export LC_ALL=C.UTF-8
+          export LANG=C.UTF-8
+          bundle exec jekyll
+          bundle exec jekyll build
+      - name: Update Branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: ${{ github.ref_name }}
           publish_dir: site
-          destination_dir: content
